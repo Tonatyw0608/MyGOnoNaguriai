@@ -10,9 +10,9 @@ class Ball {
     constructor(x, y, imageSrc) {
         this.x = x;
         this.y = y;
-        this.radius = 40;
-        this.velocityX = (Math.random() - 0.5) * 8;
-        this.velocityY = (Math.random() - 0.5) * 8;
+        this.radius = 60;
+        this.velocityX = (Math.random() - 0.5) * 12;
+        this.velocityY = (Math.random() - 0.5) * 12;
         this.image = new Image();
         this.image.src = imageSrc;
         this.image.onload = () => this.loaded = true;
@@ -41,6 +41,25 @@ let gameStarted = false;
 function initGame() {
     resizeCanvas();
     
+    // 初始化音频播放
+    const musicFiles = [
+        'music/haruhikage.wav',
+        'music/hitoshizuku.wav',
+        'music/maiyoihoshinouta.wav',
+        'music/shiruetodance.wav'
+    ];
+    const bgm = document.getElementById('bgm');
+    const startButton = document.getElementById('startButton');
+    
+    // 随机选择音乐
+    bgm.src = musicFiles[Math.floor(Math.random() * musicFiles.length)];
+    
+    // 添加按钮点击事件
+    startButton.addEventListener('click', () => {
+        bgm.play();
+        startButton.style.display = 'none';
+    });
+
     // 初始化五个角色球
     Object.entries(images).forEach(([name, src], index) => {
         const x = 200 + index * 150;
