@@ -46,7 +46,10 @@ function initGame() {
         'music/haruhikage.wav',
         'music/hitoshizuku.wav',
         'music/maiyoihoshinouta.wav',
-        'music/shiruetodance.wav'
+        'music/moudokugaosou.wav',
+        'music/shiori.wav',
+        'music/shiruetodance.wav',
+        'music/utakotoba.wav'
     ];
     const bgm = document.getElementById('bgm');
     const startButton = document.getElementById('startButton');
