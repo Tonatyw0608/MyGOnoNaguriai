@@ -58,12 +58,21 @@ function initGame() {
     const startButton = document.getElementById('startButton');
     
     // 随机选择音乐
-    bgm.src = musicFiles[Math.floor(Math.random() * musicFiles.length)];
+    const randomIndex = Math.floor(Math.random() * musicFiles.length);
+    const selectedMusic = musicFiles[randomIndex];
+    bgm.src = selectedMusic;
+    
+    // 从文件路径中提取曲目名称
+    const songName = selectedMusic.replace('music/', '').replace('.wav', '');
     
     // 添加按钮点击事件
     startButton.addEventListener('click', () => {
         bgm.play();
         startButton.style.display = 'none';
+        // 显示当前播放的曲目
+        const nowPlaying = document.getElementById('nowPlaying');
+        nowPlaying.textContent = `正在播放：${songName}`;
+        nowPlaying.style.display = 'block';
     });
 
     // 初始化五个角色球
@@ -160,7 +169,7 @@ function draw() {
                 const impulse = (2 * dotProduct) / (mass + mass);
                 
                 // 添加最小速度阈值
-                const minSpeed = 0.1;
+                const minSpeed = 0.15;
 
                 // 应用冲量并保持最小速度
                 balls[i].velocityX -= impulse * mass * nx;
