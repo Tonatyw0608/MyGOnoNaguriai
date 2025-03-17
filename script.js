@@ -1,9 +1,9 @@
 const images = {
-    灯: '高松灯.jpg',
-    立希: '椎名立希.jpg',
-    素世: '长崎素世.jpg',
-    爱音: '千早爱音.jpg',
-    楽奈: '要乐奈.jpg'
+    灯: 'image/高松灯.jpg',
+    立希: 'image/椎名立希.jpg',
+    素世: 'image/长崎素世.jpg',
+    爱音: 'image/千早爱音.jpg',
+    楽奈: 'image/要乐奈.jpg'
 };
 
 class Ball {
@@ -44,9 +44,12 @@ function initGame() {
     // 初始化音频播放
     const musicFiles = [
         'music/haruhikage.wav',
+        'music/hekitenbansou.wav',
         'music/hitoshizuku.wav',
         'music/maiyoihoshinouta.wav',
         'music/moudokugaosou.wav',
+        'music/noroshi.wav',
+        'music/rifuren.wav',
         'music/shiori.wav',
         'music/shiruetodance.wav',
         'music/utakotoba.wav'
